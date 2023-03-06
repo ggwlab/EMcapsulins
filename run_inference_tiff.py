@@ -3,18 +3,26 @@ from tqdm import tqdm
 from neuronflow.utils import turbopath
 from neuronflow.lib import single_inference
 from neuronflow.postprocessing import postprocess
-
+import os
 
 input_folder = turbopath("example_data/example_inputs")
 target_folder = turbopath("example_data/example_outputs")
 
 microscopy_images = input_folder.files()  # find all images
+num_images = len(microscopy_images)
+print(f"found {num_images} images")
+
 
 # loop through images
 for img in tqdm(microscopy_images):
+    print(f"Processing: {img}")
+
     prefix = img.name[:-4]  # image name to use as prefix
     identity = target_folder + "/" + prefix + "/" + prefix
-
+    if not os.path.exists(identity):
+        # Create the directory if it does not exist
+        os.makedirs(identity)
+   
     segmentation_file = identity + "_segmentation.tif"
 
     single_inference(

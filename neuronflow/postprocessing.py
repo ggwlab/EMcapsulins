@@ -1,12 +1,14 @@
 import cc3d
 import numpy as np
-from neuronflow.utils import turbopath, read_image, write_image
+from neuronflow.utils import turbopath, read_tif, write_tif
 from statistics import multimode
 
 from skimage import measure
 
 from monai.transforms import Compose
 from monai.transforms.post.array import FillHoles
+
+import tifffile as tiff
 
 
 def get_circularity(numpy_array):
@@ -67,7 +69,8 @@ def postprocess(
     raw_segmentation_file = turbopath(raw_segmentation_file)
     polished_segmentation_file = turbopath(polished_segmentation_file)
 
-    raw_segmentation = read_image(raw_segmentation_file)
+
+    raw_segmentation = tiff.imread(raw_segmentation_file)
     raw_segmentation = raw_segmentation.astype(dtype=np.int32)
 
     binary_segmentation = raw_segmentation > 0
@@ -127,12 +130,9 @@ def postprocess(
         multi_segmentation = np.array(hole_fill_tfs(multi_segmentation))
         multi_segmentation = multi_segmentation[0]  # get rid of channel dimension again
 
-    ### ** Save image ** ###
-    multi_segmentation_int = multi_segmentation.astype(
-        dtype=np.uint8
-    )  # convert to uint8 again
-    write_image(
-        numpy_array=multi_segmentation_int,
-        image_path=polished_segmentation_file,
+    ### ** Save tif ** ###
+    write_tif(
+        numpy_array=multi_segmentation,
+        output_tif_path=polished_segmentation_file,
     )
     return True

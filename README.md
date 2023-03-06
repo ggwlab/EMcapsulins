@@ -13,6 +13,11 @@ The models are trained on 8-bit images with a pixel size: of 0.5525 per nanomete
 We include some example input and output files for replication.
 
 ## Installation
+0) optional, but recommended: create fresh conda environment
+1) 
+    ```conda create -n emcaps_env python=3.10```
+    ```conda activate emcaps_env```
+
 
 1) Clone this repository:
     ```bash
@@ -21,14 +26,36 @@ We include some example input and output files for replication.
 2) Go into the repository and install:
     ```
     cd EMcapsulins_segmentation
+    conda create -p ./napari_submission_env python=3.10
     pip install -r requirements.txt
     pip install -e .
     ```
     
-## Usuage
-**run_inference_tiff.py** <-- Example script for inference creating tiff files
+## Usage
 
-**run_inference_nifti.py** <-- Example script for inference creating nifti files
+**run_batch_inference.py** <-- Example script for inference
+
+**run_single_inference.py** <-- A script that provides a method for running the network on a single image
+
+**training_script_headless.py** <-- Training the model form scratch.
+
+'''python training_script_headless.py --data_folder example_data/example_outputs --model_folder test'''
+
+
+
+Napari viewer for labels: 
+
+1) Go into the napari folder
+
+2) Start 'python napari_plugin_tif.py'
+
+3) Select the directory with images on the right hand side
+
+4) Scan directory: The program is looking at pairs of files ending with _mic.tif and _label.tif
+
+5) Select image, load it and use the annotation tools to correct the mask
+
+6) Save annotation (this updates the _label.tif file)
 
 
 ## Citation
@@ -41,12 +68,9 @@ tba
 ## Recommended Environment
 * CUDA 11.4+
 * Python 3.10+
-* GPU with at least 8GB of VRAM
+* GPU with at least 4GB of VRAM
 
 further details in requirements.txt
-
-## train your own EMcapsulin segmentation network
-Please have a look at this [repository](https://github.com/MartGro/EMcapsulin_Toolbox)
 
 ## Licensing
 
