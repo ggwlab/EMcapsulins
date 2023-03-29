@@ -5,7 +5,7 @@ Deep learning models to segment emcapsulins in 2D TEM micrograph images from the
 Genetically encoded barcodes for correlative volume electron microscopy
 ```
 
-![Image](documentation/example_pngs/crop.png "cropped microscopy")
+![Image](documentation/example_pngs/1M-Qt-FLAG-NES_vs_1M-Mx-FLAG-NLS_small.png "cropped microscopy")
 
 
 ## Expected data
