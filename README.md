@@ -59,6 +59,7 @@ Napari viewer for labels:
 
 
 ## Citation
+If you decide to use the code of this repo, please cite: 
 
 ```
 Genetically encoded barcodes for correlative volume electron microscopy, Nature Biotechnology, https://doi.org/10.1038/s41587-023-01713-y
