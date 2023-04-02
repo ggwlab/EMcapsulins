@@ -81,7 +81,12 @@ Contact us regarding licensing.
 ## Contact / Feedback / Questions
 If possible please open a GitHub issue [here](https://github.com/HelmholtzAI-Consultants-Munich/EMcapsulins_segmentation/issues).
 
-For inquiries not suitable for GitHub issues:
+For inquiries related to the code:
+
+m.grosshauser @ tum .de
+
+
+For inquiries related to the technology:
 
 felix.sigmund @ tum .de
 
