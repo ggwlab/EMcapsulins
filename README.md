@@ -37,7 +37,7 @@ We include some example input and output files for replication.
 
 **run_single_inference.py** <-- A script that provides a method for running the network on a single image
 
-**training_script_headless.py** <-- Training the model form scratch.
+**training_script_headless.py** <-- Training the model from scratch.
 
 '''python training_script_headless.py --data_folder example_data/example_outputs --model_folder test'''
 
@@ -45,7 +45,7 @@ We include some example input and output files for replication.
 
 Napari viewer for labels: 
 
-1) Go into the napari folder
+1) Go into the napari_plugin folder
 
 2) Start 'python napari_plugin_tif.py'
 
@@ -59,10 +59,9 @@ Napari viewer for labels:
 
 
 ## Citation
-when using the software please cite tba
 
 ```
-tba
+Genetically encoded barcodes for correlative volume electron microscopy, Nature Biotechnology, https://doi.org/10.1038/s41587-023-01713-y
 ```
 
 ## Recommended Environment
